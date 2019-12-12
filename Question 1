@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string inputfraction;
+    cout<<"Enter the fraction:" << endl;
+    getline(cin,inputfraction);
+    int x= inputfraction.find('/');
+    int l= inputfraction.length();
+    string a= inputfraction.substr(0,x);
+    string b= inputfraction.substr(x+1,l-x);
+    if(a=="0")
+    {
+        cout<<"output fraction is not defined"<<endl;
+    }
+    else if(b=="0")
+    {
+        cout<<"Enter valid input"<<endl;
+    }
+    else
+    {
+        string output = b+"/"+a;
+    cout<<"Your output fraction:"<<output<<endl;
+    }
+    return 0;
+}
