@@ -1,0 +1,92 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+string store();
+void transpose(string a[3][3]);
+void trace(string a[3][3]);
+
+int main()
+{
+  string element[3][3];
+  for (int i=0;i<3;i++)
+  {
+      for(int j=0;j<3;j++)
+      {
+          element[i][j]= store();
+      }
+  }
+  transpose(element);
+  trace(element);
+}
+
+string store()
+{
+    string a;
+    cout<<"Enter the element of row"<< endl;
+    getline(cin,a);
+    return a;
+}
+void transpose(string a[3][3])
+{
+    string b[3][3];
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            b[j][i]=a[i][j];
+        }
+    }
+    cout<<"The transpose of matrix"<<endl;
+    for(int t=0;t<3;t++)
+    {
+    for(int k=0;k<3;k++)
+    {
+        cout<<" " <<b[t][k];
+    }
+    cout<<endl;
+    }
+    cout<<endl;
+    cout<<"The original matrix"<<endl;
+    for(int l=0;l<3;l++)
+    {
+    for(int m=0;m<3;m++)
+    {
+        cout<<" " <<a[l][m];
+    }
+    cout<<endl;
+    }
+
+}
+void trace(string a[3][3] )
+{
+    double A;double B;double C;double t=0;double D;
+    for(int i= 0;i<3;i++)
+        {
+        for(int j=0;j<3;j++)
+            {
+            if(i==j)
+        {
+            int x= a[i][j].find('/');
+            int l= a[i][j].length();
+            if(x!=-1)
+            {
+            string a1= a[i][i].substr(0,x);
+            string b= a[i][i].substr(x+1,l-x);
+            A =atof(a1.c_str());
+            B =atof(b.c_str());
+            C=A/B;
+            t =t +C;
+            }
+            else
+                {
+                D= atof(a[i][j].c_str());
+                t=t+D;
+                }
+
+            }
+            }
+        }
+        cout<<"Trace of matrix is:"<<t<<endl;
+
+}
