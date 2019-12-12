@@ -1,0 +1,103 @@
+#include <iostream>
+#include<stdlib.h>
+
+using namespace std;
+
+void  OR()
+{
+    int a[9][2];
+    static int b[9];
+    for(int i=0;i<9;i++)
+    {
+        cout<<"Enter the first element of array"<<i<<endl;
+        cin>>a[i][0];
+        if(a[i][0]!=0 &&a[i][0]!=1)
+            {
+             cout<<"Enter either 0 or 1"<<endl;
+            abort();
+            }
+        cout<<"Enter the second element of array"<<i<<endl;
+        cin>>a[i][1];
+        if(a[i][1]!=0 &&a[i][1]!=1)
+            {
+             cout<<"Enter either 0 or 1"<<endl;
+            abort();
+            }
+
+        if (a[i][0]==1 || a[i][1]==1)
+            b[i]=1;
+            else
+            b[i]=0;
+
+
+    }
+    int c[3][3];
+    int t= 0;
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            c[i][j]=b[t];
+            t++;
+        }
+        t++;
+    }
+    for(int i=0;i<9;i++)
+    {
+        cout<<b[i]<<endl;
+
+    }
+}
+void AND()
+{
+    int a[9][2];
+    static int b[9];
+    for(int i=0;i<9;i++)
+    {
+        cout<<"Enter the first element of array"<<i<<endl;
+        cin>>a[i][0];
+        if(a[i][0]!=0 &&a[i][0]!=1)
+            {
+             cout<<"Enter either 0 or 1"<<endl;
+            abort();
+            }
+        cout<<"Enter the second element of array"<<i<<endl;
+        cin>>a[i][1];
+        if(a[i][1]!=0 &&a[i][1]!=1)
+            {
+             cout<<"Enter either 0 or 1"<<endl;
+            abort();
+            }
+
+        if (a[i][0]==1 && a[i][1]==1)
+            b[i]=1;
+            else
+            b[i]=0;
+
+    }
+    int c[3][3];
+    int t= 0;
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<3;j++)
+        {
+            c[i][j]=b[t];
+            t++;
+        }
+        t++;
+    }
+    for(int i=0;i<9;i++)
+    {
+        cout<<b[i]<<endl;
+
+    }
+}
+
+
+int main()
+{
+    cout<<"Here is OR function"<<endl;
+    OR();
+  cout<<"Here is AND function"<<endl;
+    AND();
+}
